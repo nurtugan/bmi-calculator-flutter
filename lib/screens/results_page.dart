@@ -4,6 +4,15 @@ import 'package:flutter/material.dart';
 import '../components/reusable_card.dart';
 
 class ResultsPage extends StatelessWidget {
+  ResultsPage(
+      {@required this.bmiResult,
+      @required this.resultText,
+      @required this.interpretation});
+
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,16 +42,17 @@ class ResultsPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'NORMAL',
+                    resultText.toUpperCase(),
                     style: kResultTextStyle,
                   ),
                   Text(
-                    '18.7',
+                    bmiResult,
                     style: kBMITextStyle,
                   ),
                   Text(
-                    'Description',
+                    interpretation,
                     style: kBodyTextStyle,
+                    textAlign: TextAlign.center,
                   ),
                 ],
               ),
